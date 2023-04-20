@@ -8,11 +8,13 @@ import {
    Title,
    ContentArea,
    Rate,
+   ListGenres
 } from "./styles";
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { useNavigation, useRoute} from '@react-navigation/native';
 import api, { key } from '../../services/api';
 import Stars from 'react-native-stars';
+import Genres from "../../components/Genres";
 
 export default function Detail(){
   const navigation = useNavigation();
@@ -46,8 +48,8 @@ if(isActive){
   }
   },[])
   return(
-    <Container>
-      <Header>
+   <Container>
+       <Header>
         <HeaderButton activeOpacity={0.7} onPress={ () => navigation.goBack()}>
           <Feather
           name="arrow-left"
@@ -90,7 +92,17 @@ if(isActive){
         disable={true}
         />
         <Rate>{movie.vote_average}/10</Rate>
+
+        
       </ContentArea>
+      <ListGenres
+      data={movie?.genres}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      keyExtractor={(item) => String (item.id)}
+      renderItem={ ({item}) => <Genres data={item}/>}
+     />
     </Container>
+    
   )
 }

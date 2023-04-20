@@ -66,3 +66,9 @@ font-size: 18px;
 font-weight: bold;
 color: #FFF;
 `;
+
+export const ListGenres = styled.FlatList`
+padding-left: 14px;
+margin: 8px 0;
+max-width: 35px;
+`;
