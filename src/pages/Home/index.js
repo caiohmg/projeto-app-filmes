@@ -114,6 +114,7 @@ export default function Home() {
         <BannerButton activeOpacity={0.9} onPress={() => navigateDetailsPage(bannerMovie)}>
           <Banner
             resizeMethod="resize"
+            resizeMode="stretch"
             source={{
               uri:
                 `https://image.tmdb.org/t/p/original/${bannerMovie.poster_path}`
