@@ -91,8 +91,8 @@ if(isActive){
         halfStar={<Ionicons name="md-star-half" size={25} color="#E7A74e"/>}
         disable={true}
         />
+        
         <Rate>{movie.vote_average}/10</Rate>
-
         
       </ContentArea>
       <ListGenres
@@ -101,7 +101,8 @@ if(isActive){
       showsHorizontalScrollIndicator={false}
       keyExtractor={(item) => String (item.id)}
       renderItem={ ({item}) => <Genres data={item}/>}
-     />
+      />
+      
     </Container>
     
   )

@@ -70,5 +70,6 @@ color: #FFF;
 export const ListGenres = styled.FlatList`
 padding-left: 14px;
 margin: 8px 0;
-max-width: 35px;
+max-width: 350px;
+max-height: 25px;
 `;
