@@ -71,5 +71,13 @@ export const ListGenres = styled.FlatList`
 padding-left: 14px;
 margin: 8px 0;
 max-width: 350px;
-max-height: 25px;
+max-height: 30px;
+`;
+
+export const Description = styled.Text`
+padding-left: 14px;
+padding-right: 14px;
+padding-bottom: 30px;
+color: #FFF;
+line-height: 20px;
 `;
