@@ -86,14 +86,14 @@ if(isActive){
       <Title numberOfLines={2}>{movie.title}</Title>
       <ContentArea>
         <Stars
-        defaut={movie.vote_average}
+        default={movie.vote_average}
         count={10}
         half={true}
         starSize={20}
-        fullStar={ <Ionicons name="md-star" size={25} color="#E7A74e"/>}
-        emptyStar={ <Ionicons name="md-star-outline" size={25} color="#E7A74e"/>}
-        halfStar={<Ionicons name="md-star-half" size={25} color="#E7A74e"/>}
-        disable={true}
+        fullStar={ <Ionicons name="md-star" size={24} color="#E7A74e"/>}
+        emptyStar={ <Ionicons name="md-star-outline" size={24} color="#E7A74e"/>}
+        halfStar={<Ionicons name="md-star-half" size={24} color="#E7A74e"/>}
+        disabled={true}
         />
         
         <Rate>{movie.vote_average}/10</Rate>
@@ -107,7 +107,7 @@ if(isActive){
       renderItem={ ({item}) => <Genres data={item}/>}
       />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Title>description</Title> 
+        <Title>Descrição</Title> 
         <Description>
           {movie?.overview}
           </Description>
