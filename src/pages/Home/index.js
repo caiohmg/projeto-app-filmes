@@ -24,7 +24,6 @@ export default function Home() {
   const [popularMovies, setPopularMovies] = useState([]);
   const [bannerMovie, setBannerMovie] = useState({});
   const [topMovies, setTopMovies] = useState([]);
-  const [ input, setInput] = useState('');
 
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
@@ -90,6 +89,7 @@ export default function Home() {
     navigation.navigate('Detail' , { id: item.id})
   }
 
+<<<<<<< HEAD
   function handleSearchMovie(){
     if(input === "")
       return;
@@ -98,6 +98,8 @@ export default function Home() {
     setInput('')
   }
 
+=======
+>>>>>>> parent of f2a6405 (.)
   if (loading){
     return(
       <Container>
@@ -113,10 +115,8 @@ export default function Home() {
         <Input
           placeholder="Ex Vingadores"
           placeholderTextColor="#ddd"
-          value={input}
-          onChangeText={ (text) => setInput(text)}
         />
-        <SearchButton onPress={handleSearchMovie}>
+        <SearchButton>
           <Feather name="search" size={30} color="#FFF" />
         </SearchButton>
       </SearchContainer>
