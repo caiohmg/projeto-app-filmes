@@ -14,7 +14,6 @@ import Header from "../../components/Header";
 import { Feather } from "@expo/vector-icons";
 import SliderItem from "../../components/SliderItem";
 
-
 import api, { key } from "../../services/api";
 import { getListMovies, randomBanner } from "../../utils/movie";
 import { useNavigation } from "@react-navigation/native";
