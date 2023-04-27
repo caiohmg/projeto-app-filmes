@@ -4,8 +4,11 @@ import { Container, ListMovies } from "./styles";
 
 import api, { key } from "../../services/api";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import SearchItem from '../../'
-export default function SearchBar() {
+import SearchItem from '../../components/SearchItem'
+
+
+
+export default function Search() {
   const navigation = useNavigation();
   const route = useRoute();
   const [movie, setMovie] = useState([]);
@@ -41,7 +44,9 @@ export default function SearchBar() {
   }, []);
   
   if (loading) {
-    return <Container></Container>
+    return(
+    <Container></Container>
+    )
   }
   
   
@@ -57,3 +62,4 @@ export default function SearchBar() {
     </Container>
   )
 }
+

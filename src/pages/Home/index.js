@@ -91,9 +91,9 @@ export default function Home() {
   }
 
   function handleSearchMovie(){
-    if(input === ''){
+    if(input === "")
       return;
-    }
+    
     navigation.navigate('Search', {name: input})
     setInput('')
   }
