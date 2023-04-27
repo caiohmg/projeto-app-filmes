@@ -89,7 +89,6 @@ export default function Home() {
     navigation.navigate('Detail' , { id: item.id})
   }
 
-<<<<<<< HEAD
   function handleSearchMovie(){
     if(input === "")
       return;
@@ -98,8 +97,7 @@ export default function Home() {
     setInput('')
   }
 
-=======
->>>>>>> parent of f2a6405 (.)
+
   if (loading){
     return(
       <Container>
