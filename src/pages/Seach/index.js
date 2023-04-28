@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
-import {Container, Name} from './styles';
+import {Container, ListMovies} from './styles';
 import api, { key} from '../../services/api';
 import { useNavigation, useRoute} from '@react-navigation/native'
+import SearchItem from '../../components/SearchItem'
 export default function SearchBar(){
   const navigation = useNavigation();
   const route = useRoute();
@@ -22,8 +23,8 @@ export default function SearchBar(){
       })
 
       if(isActive){
-        setMovie(response.data.resilts);
-        console.log(response.data.results);
+        setMovie(response.data.results);
+        
         setLoading(false);
       }
     }
@@ -38,13 +39,24 @@ export default function SearchBar(){
     }
   }, [])
 
+  function navigateDetailsPage(item) {
+    navigation.navigate('Detail', {id: item.id})
+  }
+
   if(loading){
     <Container></Container>
   }
   return(
     
     <Container>
-      <Name>Teste Procurando</Name>
+      <ListMovies
+      data={movie}
+      showsVerticalScrollIndicator={false}
+      keyExtroctor={ (item) => String (item.id)}
+      renderItem={( {item} ) => <SearchItem data={item}
+      navigatePage={ () => navigateDetailsPage(item)}
+      />}
+      ></ListMovies>
     </Container>
   )
 }
