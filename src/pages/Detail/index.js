@@ -18,13 +18,15 @@ import Stars from 'react-native-stars';
 import Genres from "../../components/Genres";
 import {ScrollView, Modal} from 'react-native'
 import ModalLink from "../../components/ModalLink";
+import { saveMovie } from "../../utils/storoge";
 
 export default function Detail(){
   const navigation = useNavigation();
   const route = useRoute();
 
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie, hasMovie] = useState({});
   const [openLink, setOpenLink] = useState(false)
+  const [favoritedMovie, setFavoritedMovie] = useState(false);
 
   useEffect(() => {
 let isActive = true;
@@ -42,6 +44,8 @@ const response = await api.get(`/movie/${route.params?.id}`,{
 
 if(isActive){
   setMovie(response.data);
+  const isFavorite = await hasMovie(response.data)
+  setFavoritedMovie(isFavorite);
 }
 }
 if(isActive){
@@ -51,6 +55,11 @@ if(isActive){
     isActive= false;
   }
   },[])
+
+  async function favoriteMovie(movie){
+    await saveMovie('@filmesprime', movie)
+    alert('FILME SALVO NA SUA LISTA')
+  }
   return(
    <Container>
        <Header>
@@ -61,12 +70,20 @@ if(isActive){
           color="#FFF"
           />
         </HeaderButton>
-        <HeaderButton>
-          <Ionicons
-          name="bookmark"
+        <HeaderButton onPress={ () => favoriteMovie(movie)}>
+          { favoritedMovie ? (
+            <Ionicons
+            name="bookmark"
+            size={28}
+            color="#FFF"
+            />
+          ): (
+            <Ionicons
+          name="bookmark-outline"
           size={28}
           color="#FFF"
           />
+          )}
         </HeaderButton>
       </Header>
       <Banner
